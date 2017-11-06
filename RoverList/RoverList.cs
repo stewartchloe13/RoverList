@@ -12,14 +12,26 @@ namespace RoverList
         
         public RoverList ()
         {
-
+            head = null;
         }
 
-        public override int Count => throw new NotImplementedException();
+        private int count = 0;
+        public override int Count => count;
 
         public override void Add(object data)
         {
-            throw new NotImplementedException();
+            if (head == null)
+            {
+                head = new Node(data);
+                current = head;
+            }
+            else
+            {
+                current.Next = new Node(data);
+                current = current.Next;
+            }
+            count++;
+
         }
 
         public override void Add(int Position, object data)
@@ -29,7 +41,8 @@ namespace RoverList
 
         public override void Clear()
         {
-            throw new NotImplementedException();
+            head = null;
+            count = 0;
         }
 
         public override Node ElementAt(int Position)
@@ -39,7 +52,12 @@ namespace RoverList
 
         public override void ListNodes()
         {
-            throw new NotImplementedException();
+            Node node = head;
+            while (node != null)
+            {
+                Console.Write(node.Data + " ");
+                node = node.Next;
+            }
         }
 
         public override bool RemoveAt(int Position)

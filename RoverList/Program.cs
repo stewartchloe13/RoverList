@@ -6,12 +6,29 @@ using System.Threading.Tasks;
 
 namespace RoverList
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+
+        public static void Main(String[] args)
         {
-            // TODO:  Implement the RoverList class
-            // TODO:  Create a RoverList and then fill it with 16 words
+            List<string> genreList = new List<string>()
+                               {
+                                   "horror",   "comedy",   "romance",
+                                   "drama",    "thriller", "family",
+                                   "war",      "sci-fi",   "history",
+                                   "action",   "crime",    "adventure",
+                                   "mystery",  "animation",    "sports",
+                                   "documentary"
+                               };
+
+
+            RoverList list = new RoverList();
+            foreach (String s in genreList)
+            {
+                list.Add(s);
+            }
+            Console.WriteLine(list.Count);
+            list.ListNodes();
 
             // TODO:  Print out the list
 

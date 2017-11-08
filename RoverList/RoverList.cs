@@ -9,8 +9,8 @@ namespace RoverList
     class RoverList : RoverListBase
     {
         // Add any variables you need here
-        
-        public RoverList ()
+
+        public RoverList()
         {
             head = null;
         }
@@ -62,7 +62,13 @@ namespace RoverList
 
         public override bool RemoveAt(int Position)
         {
-            throw new NotImplementedException();
+
+            Node last = ElementAt(Position - 1);
+            last.Next = last.Next.Next;
+
+            return true;
+
+
         }
     }
 }
